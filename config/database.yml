@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  host: localhost
+
+development:
+  <<: *default
+  database: BarHopper_development
+
+test:
+  <<: *default
+  database: BarHopper_test
+
+production:
+  <<: *default
+  database: BarHopper_production
+  username: BarHopper
+  password: <%= ENV['BARHOPPER_DATABASE_PASSWORD'] %>
