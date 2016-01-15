@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase.strip }
   before_create :set_auth_token
 
+  has_many :tabs
+  has_many :bars, through: :tabs
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, :uniqueness => true,
             :presence => true, :length => { maximum: 50 },

@@ -1,6 +1,11 @@
 module V1
-  class BarsController < V1::ApplicationController
+  class BarsController < ApplicationController
     before_action :authenticate
+
+    def index
+      bars = Bar.all
+      render json: bars, status: :ok
+    end
 
     def show
       bar = Bar.find_by(id: params[:id])
