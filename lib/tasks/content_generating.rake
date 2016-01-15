@@ -5,7 +5,13 @@ namespace :data do
 
     3.times do
       bar = FactoryGirl.create :bar
-      Tab.create(user_id: bar_hopper.id, bar_id: bar.id, balance: rand(5.01...76.99).round(2) )
+      puts "Bar created - Name: #{bar.name}"
+      tab = Tab.create(user_id: bar_hopper.id, bar_id: bar.id, balance: rand(5.01...76.99).round(2) )
+      puts "Tab Created"
+      puts "User: #{bar_hopper.first_name} #{bar_hopper.last_name}"
+      puts "Bar: #{bar.name}"
+      puts "Balance: #{tab.balance}"
+      puts "--------------"
     end
   end
 end
