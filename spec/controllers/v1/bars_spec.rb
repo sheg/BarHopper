@@ -7,7 +7,7 @@ module V1
 
     before do
       Bar.destroy_all
-      bar_size.times { FactoryGirl.create(:bar) }
+      bar_size.times { create(:bar) }
     end
 
     describe "Finding Bars" do

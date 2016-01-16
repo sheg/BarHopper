@@ -5,7 +5,7 @@ module V1
 
     describe "Creating new users" do
 
-      let(:user) { FactoryGirl.build(:user) }
+      let(:user) { build(:user) }
 
       context "required fields" do
         it "should create a new user" do
