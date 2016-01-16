@@ -47,8 +47,7 @@ RSpec.describe User, :type => :model do
       addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
       addresses.each do |valid_address|
         user.email = valid_address
-        user.save
-        expect(user).to be_truthy
+        expect(user.save).to be_truthy
       end
     end
 
@@ -57,8 +56,7 @@ RSpec.describe User, :type => :model do
                    foo@bar_baz.com foo@bar+baz.com]
       addresses.each do |invalid_address|
         user.email = invalid_address
-        user.save
-        expect(user).to be_falsy
+        expect(user.save).to be_falsy
       end
     end
   end
